@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'kr.inplat'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    implementation 'org.flywaydb:flyway-core'
+
+    implementation 'com.google.guava:guava:29.0-jre'
+
+    implementation 'com.graphql-java-kickstart:graphql-java-tools:11.0.0'
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
+    runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
+
+    runtimeOnly 'com.h2database:h2'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+    useJUnitPlatform()
+}
