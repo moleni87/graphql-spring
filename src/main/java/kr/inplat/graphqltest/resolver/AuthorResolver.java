@@ -28,8 +28,6 @@ public class AuthorResolver implements GraphQLResolver<Author> {
         DataLoaderRegistry registry = environment.getDataLoaderRegistry();
         DataLoader<Long, List<Book>> bookDataLoader = registry.getDataLoader("bookDataLoader");
         if (bookDataLoader != null) {
-            log.info(environment.getArguments());
-            log.info(environment.getSelectionSet());
             return bookDataLoader.load(author.getId());
         }
         throw new IllegalStateException("No book data loader found");
