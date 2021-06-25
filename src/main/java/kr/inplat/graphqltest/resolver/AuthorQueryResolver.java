@@ -11,8 +11,11 @@ import java.util.List;
 @Component
 public class AuthorQueryResolver implements GraphQLQueryResolver {
 
-    @Autowired
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
+
+    public AuthorQueryResolver(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
 
     public List<Author> getAuthors() {
         return authorRepository.findAll();
