@@ -16,5 +16,5 @@ public class AuthorMutationResolver implements GraphQLMutationResolver {
         return authorRepository.save(new Author(firstName, lastName));
     }
 
-    // TODO2
+    // TODO
 }
